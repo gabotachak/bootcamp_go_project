@@ -1,0 +1,550 @@
+definitions:
+  web.Response:
+    properties:
+      code:
+        type: string
+      data:
+        type: object
+      error:
+        type: string
+    type: object
+info:
+  contact:
+    name: API Support
+    url: https://developers.mercadolibre.com.ar/support
+  description: This API Handle MELI Fresh Products.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://developers.mercadolibre.com.ar/es_ar/terminos-y-condiciones
+  title: MELI Bootcamp API - TEAM 3
+  version: "1.0"
+paths:
+  /api/v1/buyers:
+    get:
+      consumes:
+      - application/json
+      description: Get Buyers
+      parameters:
+      - description: Buyer name
+        in: query
+        name: nombre
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: List Buyers
+      tags:
+      - Buyer
+    post:
+      consumes:
+      - application/json
+      description: Store Buyer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Store Buyer
+      tags:
+      - Buyer
+  /api/v1/buyers/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete buyer
+      parameters:
+      - description: Buyer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Delete Buyer
+      tags:
+      - Buyer
+    get:
+      consumes:
+      - application/json
+      description: Get Buyer
+      parameters:
+      - description: Buyer cardNumberID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: List Buyer
+      tags:
+      - Buyer
+    patch:
+      consumes:
+      - application/json
+      description: Update Buyer
+      parameters:
+      - description: Buyer ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Update Buyer
+      tags:
+      - Buyer
+  /api/v1/employees:
+    get:
+      description: Get all employees
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: List Employees
+      tags:
+      - Employees
+    post:
+      consumes:
+      - application/json
+      description: Post employee
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Store employee
+      tags:
+      - Employees
+  /api/v1/employees/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete employee
+      parameters:
+      - description: CardNumberID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Delete a employee
+      tags:
+      - Employees
+    get:
+      description: Return a Employee
+      parameters:
+      - description: Employee cardNumberID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Return a Employee
+      tags:
+      - Employees
+    patch:
+      consumes:
+      - application/json
+      description: Update employee
+      parameters:
+      - description: CardNumberID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Update a employee
+      tags:
+      - Employees
+  /api/v1/products:
+    get:
+      consumes:
+      - application/json
+      description: This function returns all product
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Return all products
+      tags:
+      - Products
+    post:
+      consumes:
+      - application/json
+      description: This function stores a product with a productCode that doesnt exist
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Save a product
+      tags:
+      - Products
+  /api/v1/products/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This function returns a product searched by id
+      parameters:
+      - description: id product
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Delete a product
+      tags:
+      - Products
+    get:
+      consumes:
+      - application/json
+      description: This function returns a product serched by id
+      parameters:
+      - description: id product
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Return a product
+      tags:
+      - Products
+    patch:
+      consumes:
+      - application/json
+      description: This function updates a product searched by id
+      parameters:
+      - description: id product
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Update a product
+      tags:
+      - Products
+  /api/v1/sections:
+    get:
+      description: Get all sections
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: List sections
+      tags:
+      - Sections
+    post:
+      consumes:
+      - application/json
+      description: Post sections
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Store section
+      tags:
+      - Sections
+  /api/v1/sections/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete section
+      parameters:
+      - description: Section id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Delete a section
+      tags:
+      - Sections
+    get:
+      description: Return a section
+      parameters:
+      - description: id section
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Return a section
+      tags:
+      - Sections
+    patch:
+      consumes:
+      - application/json
+      description: Update section
+      parameters:
+      - description: Section id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Update a section
+      tags:
+      - Sections
+  /api/v1/sellers:
+    get:
+      description: Get all sellers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: List sellers
+      tags:
+      - Sellers
+    post:
+      consumes:
+      - application/json
+      description: Store seller
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Store Seller
+      tags:
+      - Sellers
+  /api/v1/sellers/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete seller
+      parameters:
+      - description: id seller
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Delete a seller
+      tags:
+      - Sellers
+    get:
+      description: Return a seller
+      parameters:
+      - description: id seller
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Return a seller
+      tags:
+      - Sellers
+    patch:
+      consumes:
+      - application/json
+      description: Update seller
+      parameters:
+      - description: id seller
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Update a seller
+      tags:
+      - Sellers
+  /api/v1/warehouses:
+    get:
+      description: Get all warehouses
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: List warehouses
+      tags:
+      - Warehouses
+    post:
+      consumes:
+      - application/json
+      description: Create warehouse
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Create warehouse
+      tags:
+      - Warehouses
+  /api/v1/warehouses/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete warehouse
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Delete a warehouse
+      tags:
+      - Warehouses
+    get:
+      description: Return a warehouse
+      parameters:
+      - description: warehouse id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Return a warehouse
+      tags:
+      - Warehouses
+    patch:
+      consumes:
+      - application/json
+      description: Update warehouse
+      parameters:
+      - description: Id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/web.Response'
+      summary: Update a warehouse
+      tags:
+      - Warehouses
+swagger: "2.0"
